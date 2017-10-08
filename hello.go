@@ -5,15 +5,18 @@ import (
 	"encoding/json"
 )
 
+// Response 用の構造体
 type Result struct {
 	Status int
 	Description string
 }
 
+// hello に対して router を設定
 func init() {
 	http.HandleFunc("/hello", handler)
 }
 
+// hello に binding された function
 func handler(w http.ResponseWriter, r *http.Request) {
 	var result Result
 	switch r.Method {
