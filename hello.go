@@ -18,9 +18,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	var result Result
 	switch r.Method {
 	case http.MethodGet:
-		result = Result{http.StatusOK, "http get result"}
+		v := r.FormValue("get_value")
+		result = Result{http.StatusOK, "http get result [" + v + "]"}
 	case http.MethodPost:
-		result = Result{http.StatusOK, "http post result"}
+		v := r.FormValue("post_value")
+		result = Result{http.StatusOK, "http post result [" + v + "]"}
 	default:
 		result = Result{http.StatusNotImplemented, "not implemented http mehtod"}
 	}
