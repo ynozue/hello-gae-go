@@ -1,8 +1,9 @@
-package main
+package appengine
 
 import (
 	"net/http"
 	"encoding/json"
+	"fmt"
 )
 
 // Response 用の構造体
@@ -11,7 +12,11 @@ type Result struct {
 	Description string
 }
 
-// hello に対して router を設定
+func New() {
+	fmt.Println("new")
+}
+
+// package 読み込み時に実行される
 func init() {
 	http.HandleFunc("/hello", handler)
 }
