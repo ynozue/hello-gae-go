@@ -5,7 +5,6 @@ import (
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	"fmt"
 )
 
 type (
@@ -40,7 +39,6 @@ func init() {
 func createUser(c echo.Context) error {
 	u := new(user)
 	if err := c.Bind(u); err != nil {
-		fmt.Println(u)
 		return err
 	}
 	users[u.ID] = *u
